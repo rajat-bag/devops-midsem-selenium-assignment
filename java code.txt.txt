@@ -1,0 +1,61 @@
+package selProject;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class testfb
+{
+	public void login(WebDriver driver) throws InterruptedException
+	{
+		driver.get("C://Users//lenovo//Desktop//web assignment//facebook.html");
+		Thread.sleep(1000);
+		driver.findElement(By.id("login_email")).sendKeys("abc@gmail.com");
+		Thread.sleep(1000);
+		driver.findElement(By.id("login_password")).sendKeys("abc@133");
+		Thread.sleep(1000);
+		driver.findElement(By.id("login_btn")).submit();	
+	}
+	
+	public void register(WebDriver driver) throws InterruptedException
+	{
+		driver.get("C://Users//lenovo//Desktop//web assignment//facebook.html");
+		Thread.sleep(1000);
+		driver.findElement(By.id("register_firstName")).sendKeys("rajat");
+		Thread.sleep(1000);
+		driver.findElement(By.id("register_lastName")).sendKeys("bag");
+		Thread.sleep(1000);
+		driver.findElement(By.id("register_email")).sendKeys("abvc@bag");
+		Thread.sleep(1000);
+		driver.findElement(By.id("register_email2")).sendKeys("abvc@bag");
+		Thread.sleep(1000);
+		driver.findElement(By.id("register_password")).sendKeys("bag");
+		Thread.sleep(1000);
+		driver.findElement(By.id("register_dob")).sendKeys("06/04/1998");
+		Thread.sleep(1000);
+		driver.findElement(By.id("register_male")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("register_female")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("register_btn")).submit();
+	}
+
+public static void main(String[] args) throws InterruptedException
+{
+	
+	System.setProperty("webdriver.chrome.driver","F:\\chromedriver_win32\\chromedriver.exe");
+	WebDriver driver=new ChromeDriver();
+	//driver.get("C://Users//lenovo//Desktop//web assignment//facebook.html");
+	
+	testfb ob=new testfb();
+	int i=0,j=0;
+	while(++i<=4) {
+	ob.login(driver);
+	Thread.sleep(3000);
+	}
+	while(++j<=4) {
+	ob.register(driver);
+	Thread.sleep(3000);
+	}
+}
+}
